@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Test_Karim</string>
+
+    <string name="error_connection">Connection failed, Please check your internet connection!!!</string>
+    <string name="loading">Please Wait..</string>
+    <string name="no_data">Data Empty</string>
+
+    <!--First Screen-->
+    <string name="type_name_hint">Type name here</string>
+    <string name="next">Next</string>
+
+    <!--Second Screen-->
+    <string name="choose_event">Choose Event</string>
+    <string name="choose_guest">Choose Guest</string>
+    <string name="name">Name :</string>
+
+    <!--Third Screen-->
+    <string name="choose_eventn">Choose Event</string>
+</resources>

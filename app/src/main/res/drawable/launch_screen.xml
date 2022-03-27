@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- The background color, preferably the same as your normal theme -->
+    <item android:drawable="@color/light_blue_A200"/>
+
+    <!-- Your product logo - 144dp color version of your app icon -->
+
+    <item>
+        <shape android:shape="oval"  >
+            <solid android:angle="-90" android:color="@color/overlay_light_30"  />
+        </shape>
+    </item>
+    <item>
+        <bitmap
+            android:gravity="center"
+            android:src="@drawable/user_big" />
+    </item>
+</layer-list>

@@ -1,0 +1,82 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply from: 'libraries.gradle'
+
+android {
+    compileSdkVersion versions.compileSdk
+    buildToolsVersion versions.buildTools
+
+    defaultConfig {
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.targetSdk
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+        vectorDrawables.useSupportLibrary = true
+    }
+
+    androidExtensions {
+        experimental = true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildTypes.each {
+        Properties properties = new Properties()
+        properties.load(project.rootProject.file("local.properties").newDataInputStream())
+
+        def url_dev = properties.getProperty("url_demo", "")
+        it.buildConfigField 'String', "URL_DEBUG", url_dev
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation 'junit:junit:4.12'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    api androidDependencies.values()
+    api androidNavigationDependencies.values()
+
+    api gpsDependencies.values()
+
+    api viewModelDependencies.values()
+
+    api designDependencies.values()
+
+    api coroutinesDependencies.values()
+
+    api imageToolDependencies.picasso
+    api imageToolDependencies.glide
+    kapt imageToolDependencies.glide_compiler
+    api imageToolDependencies.compressor
+    api imageToolDependencies.inject
+
+    api permissionDependencies.values()
+
+    api dimensDependencies.values()
+
+    api logDependencies.values()
+
+    api customCrashDependencies.values()
+
+    api connectionDependencies.values()
+
+    api injectionDependencies.values()
+
+    testImplementation testDependencies.junit
+    androidTestImplementation testDependencies.runner
+    androidTestImplementation testDependencies.espresso
+}

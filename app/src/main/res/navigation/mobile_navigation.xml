@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_first">
+
+    <fragment
+        android:id="@+id/nav_first"
+        android:name="com.test.test_karim.feature.main.first.FirstFragment"
+        android:label="first screen"
+        tools:layout="@layout/fragment_first">
+        <action
+            android:id="@+id/action_FirstFragment_to_SecondFragment"
+            app:destination="@id/nav_second" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_second"
+        android:name="com.test.test_karim.feature.main.second.SecondFragment"
+        android:label="second screen"
+        tools:layout="@layout/fragment_second">
+        <action
+            android:id="@+id/action_SecondFragment_to_ThirdFragment"
+            app:destination="@id/nav_third" />
+
+        <action
+            android:id="@+id/action_SecondFragment_to_FourthFragment"
+            app:destination="@id/nav_fourth" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_third"
+        android:name="com.test.test_karim.feature.main.third.ThirdFragment"
+        android:label="thrid screen"
+        tools:layout="@layout/fragment_third"/>
+
+    <fragment
+        android:id="@+id/nav_fourth"
+        android:name="com.test.test_karim.feature.main.fourth.FourthFragment"
+        android:label="thrid screen"
+        tools:layout="@layout/fragment_fourth"/>
+
+</navigation>
